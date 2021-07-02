@@ -6,6 +6,16 @@
         <h1>
             testing
         </h1>
+
+        <form action="/account/hello_world/" method="post"> <!-- 이 주소로 요청 보낸다 -->
+            {% csrf_token %} {# 장고에서 제공하는 보안기능, 따라서 꼭 적어줘야한다 #}
+            <input type="submit" class="btn btn-primary" value="POST">
+        </form>
+
+        <h1>
+            {{ text }}  {# POST 뷰랑 모델에 받아오는... 그런... #}
+        </h1>
+
     </div>  <!-- 프론트엔드 중간 body 부분 변경(extends 구문 사용) -->
 
 {% endblock %}
