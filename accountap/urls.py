@@ -1,9 +1,10 @@
 from django.urls import path
 
-from accountap.views import hello_world
+from accountap.views import hello_world, AccountCreateView
 
 app_name = "accountap"
 
 urlpatterns = [
-    path('hello_world/', hello_world, name='hello_world')
+    path('hello_world/', hello_world, name='hello_world'),
+    path('create/', AccountCreateView.as_view(), name='create'),
 ]
