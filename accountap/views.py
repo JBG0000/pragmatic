@@ -5,8 +5,9 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy  # accountap 내부의 hello_world로 재접속하라
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
+from accountap.forms import AccountUpdateForm
 from accountap.models import HelloWorld #models에 있던 DB저장 유형틀 쓸거다!
 
 
@@ -37,3 +38,9 @@ class AccountDetailView(DetailView):    #마이페이지
     model = User
     context_object_name = 'target_user' #다른 사람이 내 마이페이지에 들어와도 내용을 잘 볼 수 있도록
     template_name = 'accountap/detail.html'
+
+class AccountUpdateView(UpdateView):    #업데이트 창
+    model = User
+    form_class = AccountUpdateForm  #forms.py에 있는 함수 사용
+    success_url = reverse_lazy('accountap:hello_world') #성공시 연결 url
+    template_name = 'accountap/update.html'
