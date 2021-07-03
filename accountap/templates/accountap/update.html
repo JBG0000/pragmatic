@@ -7,7 +7,7 @@
         <div class="mb-4">  {# 마진 바텀 4배 #}
             <h4>Change Info</h4>
         </div>
-        <form action="{% url 'accountap:update' pk=user.pk %}" method="post">
+        <form action="{% url 'accountap:update' pk=target_user.pk %}" method="post">
             {% csrf_token %} {# 필수! #}
             {#            {{ form }}#}
             {% bootstrap_form form %}

@@ -6,7 +6,7 @@
         <div class="mb-4">  {# 마진 바텀 4배 #}
             <h4>Quit</h4>
         </div>
-        <form action="{% url 'accountap:delete' pk=user.pk %}" method="post">   {# pk없으면 안돌아감 #}
+        <form action="{% url 'accountap:delete' pk=target_user.pk %}" method="post">   {# pk없으면 안돌아감 #}
             {% csrf_token %} {# 필수! #}
             <input type="submit" class="btn btn-danger rounded-pill col-6 mt-3">
         </form>

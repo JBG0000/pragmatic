@@ -41,6 +41,7 @@ class AccountDetailView(DetailView):    #마이페이지
 
 class AccountUpdateView(UpdateView):    #업데이트 창
     model = User
+    context_object_name = 'target_user'
     form_class = AccountUpdateForm  #forms.py에 있는 함수 사용
     success_url = reverse_lazy('accountap:hello_world') #성공시 연결 url
     template_name = 'accountap/update.html'
@@ -48,5 +49,6 @@ class AccountUpdateView(UpdateView):    #업데이트 창
 
 class AccountDeleteView(DeleteView):    #회원탈퇴
     model = User
+    context_object_name = 'target_user'
     success_url = reverse_lazy('accountap:login')
     template_name = 'accountap/delete.html'
