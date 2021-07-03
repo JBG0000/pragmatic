@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy  # accountap 내부의 hello_world로 재접속하라
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from accountap.forms import AccountUpdateForm
 from accountap.models import HelloWorld #models에 있던 DB저장 유형틀 쓸거다!
@@ -44,3 +44,9 @@ class AccountUpdateView(UpdateView):    #업데이트 창
     form_class = AccountUpdateForm  #forms.py에 있는 함수 사용
     success_url = reverse_lazy('accountap:hello_world') #성공시 연결 url
     template_name = 'accountap/update.html'
+
+
+class AccountDeleteView(DeleteView):    #회원탈퇴
+    model = User
+    success_url = reverse_lazy('accountap:login')
+    template_name = 'accountap/delete.html'

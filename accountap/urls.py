@@ -1,7 +1,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
-from accountap.views import hello_world, AccountCreateView, AccountDetailView, AccountUpdateView
+from accountap.views import hello_world, AccountCreateView, AccountDetailView, AccountUpdateView, AccountDeleteView
 
 app_name = "accountap"
 
@@ -14,4 +14,5 @@ urlpatterns = [
     path('create/', AccountCreateView.as_view(), name='create'),    #회원가입 창
     path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'),#디테일 창 : 몇번 유저 객체에 접근하는지 : <int:pk>
     path('update/<int:pk>', AccountUpdateView.as_view(), name='update'),
+    path('delete/<int:pk>', AccountDeleteView.as_view(), name='delete'),
 ]
