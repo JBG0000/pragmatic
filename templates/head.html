@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 
     <!-- DEFAULT CSS LINK (css를 전체 템플릿에서 샤용 가능)-->
-    <link rel="stylesheet" type="text/css" href="{% static 'bass.css' %}?after">    {# ?after을 추가해 주어야 변경 전 css를 캐시데이터로 저장하여 사용하는 브라우저를 css를 수정한대로 바로바로 적용할 수 있다 #}
+    <link rel="stylesheet" type="text/css" href="{% static 'bass.css' %}?after">    {# 중요!!! 뒤에 ?after을 추가해 주어야 변경 전 css를 캐시데이터로 저장하여 사용하는 브라우저를 css를 수정한대로 바로바로 적용할 수 있다 #}
 
     <style> {# 스태틱의 폰트 폴더 안에 있는 폰트들은 이렇게 head에 정의해서 그 html에서 사용 가능 #}
         @font-face {
