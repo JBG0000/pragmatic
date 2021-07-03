@@ -8,6 +8,14 @@
         <span>nav1</span>
         <span>nav2</span>
         <span>nav3</span>
-        <span>nav4</span>
+        {% if not user.is_authenticated %}  {# 로그인이 되어있지 않다면  #}
+        <a href="{% url 'accountap:login' %}?next={{ request.path }}">  {# 작업 후 원래 있있었던 페이지로 돌아옴 #}
+            <span>login</span>  {# 로그인 표시 #}
+        </a>
+        {% else %}  {# 로그인 되어있으면 #}
+        <a href="{% url 'accountap:logout' %}?next={{ request.path }}">
+            <span>logout</span> {# 로그아웃 표시 #}
+        </a>
+        {% endif %}
     </div>
 </div>

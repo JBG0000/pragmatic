@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 import os, environ
+
+from django.conf.global_settings import LOGIN_REDIRECT_URL, LOGOUT_REDIRECT_URL
+from django.urls import reverse_lazy
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -136,6 +140,9 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles') #프로젝트의 스태틱들
 STATICFILES_DIRS = [
     BASE_DIR / "static",    #장고 스태틱 관리 공식 문서 참조, app 폴더에 종속되지 않고 static 폴더에 스태틱 파일을 관리
 ]
+
+LOGIN_REDIRECT_URL = reverse_lazy('accountap:hello_world')  #로그인 로그아웃 다시 돌아갈 페이지
+LOGOUT_REDIRECT_URL = reverse_lazy('accountap:login')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
