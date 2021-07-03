@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('accountap.urls'))
+    path('accounts/', include('accountap.urls')),    #어카운트 앱 내부 url로 연결
+    path('profiles/', include('profileapp.urls')),  #프로파일앱 내부 urls로 연결
 ]
