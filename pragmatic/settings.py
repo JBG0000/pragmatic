@@ -145,6 +145,11 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = reverse_lazy('accountap:hello_world')  #로그인 로그아웃 다시 돌아갈 페이지
 LOGOUT_REDIRECT_URL = reverse_lazy('accountap:login')
 
+
+MEDIA_URL='/media/' #미디어를 접속 url에 붙여서 입력
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')    #media 파일 폴더에서 가져온다...라는 뜻
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
