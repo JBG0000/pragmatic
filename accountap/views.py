@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy  # accountap 내부의 hello_world로 재접속하라
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from accountap.models import HelloWorld #models에 있던 DB저장 유형틀 쓸거다!
 
@@ -27,8 +27,13 @@ def hello_world(request):
         return render(request, 'accountap/hello_world.html', context={'hello_world_list': hello_world_list})
 
 
-class AccountCreateView(CreateView):    #파라미터 넘겨주기~
+class AccountCreateView(CreateView):    #회원가입 창 : 파라미터 넘겨주기~
     model = User
     form_class = UserCreationForm
     success_url = reverse_lazy('accountap:hello_world') #성공시 연결 url
     template_name = 'accountap/create.html'
+
+class AccountDetailView(DetailView):    #마이페이지
+    model = User
+    context_object_name = 'target_user' #다른 사람이 내 마이페이지에 들어와도 내용을 잘 볼 수 있도록
+    template_name = 'accountap/detail.html'
