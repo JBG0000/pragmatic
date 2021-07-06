@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'bootstrap4',   #부트스트랩 4 사용할때 넣어야함
     'profileapp',
     'articleapp',
+    'commentapp',
 ]
 
 MIDDLEWARE = [
