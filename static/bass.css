@@ -16,3 +16,9 @@
     text-align: center;
     margin: 2rem 0;
 }
+
+@media screen and (max-width: 500px) {  /*미디어 쿼리! 전체 창 크기가 작아지면 글씨도 작아지게*/
+    html {
+        font-size: 13px;
+    }
+}

@@ -40,7 +40,8 @@ SECRET_KEY = env('SECRET_KEY')  #env에서 SECRET_KEY 항목 갖고오기
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS는 로컬서버 모바일로 접속할때 유용!
+ALLOWED_HOSTS = ['*']   #'*'모든 호스트 허용
 
 
 # Application definition
